@@ -30,7 +30,7 @@ CREATE TABLE `setting` (
   `createtime` datetime NOT NULL,
   `modifytime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `setting` (
 
 LOCK TABLES `setting` WRITE;
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
-INSERT INTO `setting` VALUES (1,'https://qr.ioi.tw/zh/12','2023-12-04 00:00:00','2023-12-06 09:51:20'),(2,'http://123123','2023-12-04 10:24:17','2023-12-04 22:50:41'),(3,'https://qr.ioi.tw/zh/123111','2023-12-04 11:00:02','2023-12-05 14:52:33'),(4,'12345111','2023-12-04 12:22:25','2023-12-04 12:22:53'),(5,'123123666@','2023-12-04 16:28:05',NULL),(6,'https://qr.ioi.tw/zh/123666','2023-12-04 21:40:04',NULL),(7,'1236661','2023-12-04 22:11:45','2023-12-05 08:59:40'),(8,'test','2023-12-05 09:01:14',NULL),(9,'https://qr.ioi.tw/zh/13','2023-12-05 09:01:21','2023-12-05 14:54:22'),(10,'https://qr.ioi.tw/zh/123123','2023-12-05 09:03:05','2023-12-05 14:53:01'),(11,'webTest','2023-12-05 09:34:09',NULL),(12,'testcam','2023-12-05 09:46:27',NULL),(13,'https://qr.ioi.tw/zh/123012','2023-12-05 10:23:52','2023-12-05 14:55:47'),(14,'1231','2023-12-05 14:05:07',NULL),(15,'12345','2023-12-05 14:11:20',NULL),(16,'HTTP','2023-12-05 14:16:42',NULL),(17,'https://qr.ioi.tw/zh/12301','2023-12-05 14:17:03','2023-12-05 14:53:46'),(18,'123','2023-12-05 14:44:34',NULL),(19,'https://qr.ioi.tw/zh/123456','2023-12-05 14:45:03','2023-12-05 14:53:20');
+INSERT INTO `setting` VALUES (1,'https://qr.ioi.tw/zh/','2023-12-04 00:00:00','2023-12-07 10:18:42');
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `url_log` (
   `log` varchar(200) NOT NULL,
   `createtime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +64,7 @@ CREATE TABLE `url_log` (
 
 LOCK TABLES `url_log` WRITE;
 /*!40000 ALTER TABLE `url_log` DISABLE KEYS */;
+INSERT INTO `url_log` VALUES (1,'https://qr.ioi.tw/zh/123666','2023-12-04 21:40:04'),(2,'https://qr.ioi.tw/zh/123666','2023-12-04 21:40:04'),(3,'https://qr.ioi.tw/zh/123666','2023-12-04 21:40:04'),(4,'https://qr.ioi.tw/zh/123666','2023-12-04 21:40:04'),(5,'123456test','0000-00-00 00:00:00'),(6,'https://qr.ioi.tw/zh/123','2023-12-04 00:00:00'),(7,'https://qr.ioi.tw/zh/123','2023-12-04 00:00:00'),(8,'https://qr.ioi.tw/zh/123666','2023-12-04 21:40:04'),(9,'https://qr.ioi.tw/zh/123666','2023-12-04 21:40:04'),(10,'123456','0000-00-00 00:00:00'),(11,'123456','0000-00-00 00:00:00'),(12,'123456','0000-00-00 00:00:00'),(13,'123456','2023-12-07 11:01:50'),(14,'123456','2023-12-07 11:02:16'),(15,'https://qr.ioi.tw/zh/123456','2023-12-07 11:09:05'),(16,'Array123456','2023-12-07 11:14:29'),(17,'123456','2023-12-07 11:16:07'),(18,'https://qr.ioi.tw/zh/123456','2023-12-07 11:21:19'),(19,'https://qr.ioi.tw/zh/123456','2023-12-07 11:24:24'),(20,'https://qr.ioi.tw/zh/999','2023-12-07 11:25:19'),(21,'https://qr.ioi.tw/zh/123456','2023-12-07 11:25:41'),(22,'https://qr.ioi.tw/zh/123456','2023-12-07 11:25:41'),(23,'https://qr.ioi.tw/zh/999','2023-12-07 11:28:00'),(24,'https://qr.ioi.tw/zh/123456','2023-12-07 11:28:33'),(25,'https://qr.ioi.tw/zh/123456','2023-12-07 11:37:17'),(26,'https://qr.ioi.tw/zh/123456','2023-12-07 11:38:03'),(27,'https://qr.ioi.tw/zh/999','2023-12-07 11:39:16'),(28,'https://qr.ioi.tw/zh/https://qr.ioi.tw/zh/11111','2023-12-11 10:39:06'),(29,'https://qr.ioi.tw/zh/11111','2023-12-11 10:40:26'),(30,'https://qr.ioi.tw/zh/11111','2023-12-11 10:40:42');
 /*!40000 ALTER TABLE `url_log` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -76,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-06 11:06:39
+-- Dump completed on 2023-12-11 10:47:35
