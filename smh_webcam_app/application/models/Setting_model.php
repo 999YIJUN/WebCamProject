@@ -16,6 +16,17 @@ class Setting_model extends CI_Model
         return $query->result_array();
     }
 
+    public function get_setting_url()
+    {
+        $this->db->select("url");
+        $this->db->from("setting");
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+
     public function insert_setting($data)
     {
         $data["createtime"] = date("Y-m-d H:i:s");

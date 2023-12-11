@@ -12,26 +12,31 @@ class Web extends CI_Controller
         $resultText = $this->input->post('resultText');
         $this->load->model('Setting_model');
 
-        $urlValue = $this->Setting_model->getCamValue($resultText);
-
-        if ($urlValue) {
-            $a = $urlValue->url;
-            $lastPart = basename($a);
-            echo $lastPart;
-
-            $this->insertIntoUrlLog($a, $urlValue->createtime);
-        } else {
-            echo "無此資料";
+        // $urlValue = $this->Setting_model->getCamValue($resultText);
+        $url = $this->Setting_model->get_setting_url();
+        if ($url) {
+            $fullUrl = $url->url . $resultText;
+            echo $fullUrl;
+            $this->insertIntoUrlLog($fullUrl);
         }
+
+        // if ($urlValue) {
+        //     $a = $urlValue->url;
+        //     $lastPart = basename($a);
+        //     echo $lastPart;
+
+        //$this->insertIntoUrlLog($a);
+        // } else {
+        //     echo "無此資料";
+        // }
     }
 
-    private function insertIntoUrlLog($url, $createtime)
+    private function insertIntoUrlLog($url)
     {
         $data = array(
             'log' => $url,
-            'createtime' => $createtime
+            'createtime' => date("Y-m-d H:i:s")
         );
-
         $this->db->insert('url_log', $data);
     }
 }

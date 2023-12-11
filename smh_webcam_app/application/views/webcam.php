@@ -46,6 +46,7 @@
                 </div>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="button" class="btn btn-primary" id="urlButton">查看資料</button>
                 <button type="button" class="btn btn-primary" id="startButton">開啟</button>
                 <button type="button" class="btn btn-primary" id="resetButton">重置</button>
             </div>
@@ -66,8 +67,7 @@
         function decodeOnce(codeReader, selectedDeviceId) {
             codeReader.decodeFromInputVideoDevice(selectedDeviceId, 'video').then((result) => {
                 console.log(result);
-
-                // 發送 AJAX 請求到後端處理
+                // 發送 AJAX 請求
                 let xhr = new XMLHttpRequest();
                 xhr.open('POST', '<?php echo base_url("web/checkCamValue"); ?>', true);
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -82,8 +82,7 @@
                         }
                     }
                 };
-
-                // 將解碼結果作為參數發送到後端 PHP 檔案
+                // 將解碼結果作為參數發送
                 let data = 'resultText=' + encodeURIComponent(result.text);
                 xhr.send(data);
             }).catch((err) => {
@@ -96,10 +95,8 @@
         function decodeContinuously(codeReader, selectedDeviceId) {
             codeReader.decodeFromInputVideoDeviceContinuously(selectedDeviceId, 'video', (result, err) => {
                 if (result) {
-                    // Properly decoded QR code
                     console.log('Found QR code!', result);
 
-                    // Send AJAX request to backend for processing
                     let xhr = new XMLHttpRequest();
                     xhr.open('POST', '<?php echo base_url("web/checkCamValue"); ?>', true);
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -115,7 +112,6 @@
                         }
                     };
 
-                    // Send decoded result as parameter to the backend PHP file
                     let data = 'resultText=' + encodeURIComponent(result.text);
                     xhr.send(data);
                 }
@@ -185,8 +181,14 @@
                 .catch((err) => {
                     console.error(err)
                 })
-        })
+        });
+
+        document.getElementById('urlButton').addEventListener('click', () => {
+            var url = document.getElementById('result').textContent;
+            window.location.href = url;
+        });
     </script>
+    <?php $this->load->view('script'); ?>
 </body>
 
 </html>
