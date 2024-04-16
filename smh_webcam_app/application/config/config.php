@@ -23,9 +23,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://127.0.0.1/smh_webcam_app/';
-// $hostname = (isset($_SERVER['HTTP_HOST'])) ? $_SERVER['HTTP_HOST'] : '';
-// $config['base_url'] = "https://{$hostname}/smh_webcam_app/";
+// $config['base_url'] = 'http://127.0.0.1/smh_webcam_app/';
+$hostname = (isset($_SERVER['HTTP_HOST'])) ? $_SERVER['HTTP_HOST'] : '';
+$config['base_url'] = "https://{$hostname}/smh_webcam_app/";
 /*
 |--------------------------------------------------------------------------
 | Index File

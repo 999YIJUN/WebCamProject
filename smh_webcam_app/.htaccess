@@ -1,10 +1,3 @@
-# 啟用 Rewrite 引擎
-#RewriteEngine On
-
-# 將所有請求重定向到 index.php
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^(.*)$ index.php/$1 [L]
 <IfModule mod_rewrite.c>
  
 # ciHTACCESS, by Mario "Kuroir" Ricalde
@@ -41,3 +34,5 @@ RewriteRule . %1/%2 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
+ 
+</IfModule>

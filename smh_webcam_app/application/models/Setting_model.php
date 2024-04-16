@@ -11,7 +11,6 @@ class Setting_model extends CI_Model
 
     public function get_setting()
     {
-        //$this->db->select("url, modifytime");
         $query = $this->db->get("setting");
         return $query->result_array();
     }
@@ -26,13 +25,6 @@ class Setting_model extends CI_Model
         return $query->row();
     }
 
-
-    public function insert_setting($data)
-    {
-        $data["createtime"] = date("Y-m-d H:i:s");
-        $this->db->insert("setting", $data);
-    }
-
     public function get_setting_by_url($url)
     {
         $query = $this->db->get_where('setting', array('url' => $url));
@@ -44,6 +36,18 @@ class Setting_model extends CI_Model
         }
     }
 
+    public function get_setting_by_id($id)
+    {
+        $query = $this->db->get_where("setting", array("id" => $id));
+        return $query->row();
+    }
+
+    public function insert_setting($data)
+    {
+        $data["createtime"] = date("Y-m-d H:i:s");
+        $this->db->insert("setting", $data);
+    }
+
     public function update_setting($id, $data)
     {
         $data["modifytime"] = date("Y-m-d H:i:s");
@@ -51,10 +55,11 @@ class Setting_model extends CI_Model
         $this->db->update("setting", $data);
     }
 
-    public function get_setting_by_id($id)
+    public function delete_setting($id)
     {
-        $query = $this->db->get_where("setting", array("id" => $id));
-        return $query->row_array();
+        $this->db->where('id', $id);
+        $this->db->delete('setting');
+        return $this->db->affected_rows();
     }
 
     public function getCamValue($resultText)
