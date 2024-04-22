@@ -22,11 +22,11 @@
                 <video id="video" style="border: 1px solid gray"></video>
             </div>
             <div class="mb-3 row g-3">
-                <div class="col-md-9" id="">
+                <div class="col-md-8" id="">
                     <label class="form-label">Result:</label>
                     <div class="form-control" style="height: 37.6px;"><code id="result"></code></div>
                 </div>
-                <div class="col-md-3 d-grid gap-2 d-md-flex justify-content-md-end align-items-end">
+                <div class="col-md-4 d-grid gap-2 d-md-flex justify-content-md-end align-items-end">
                     <button type="button" class="btn btn-primary" id="urlButton" disabled style="height: 37.6px;">查看資料</button>
                     <button type="button" class="btn btn-primary" id="startButton" disabled style="height: 37.6px;">開啟</button>
                     <button type="button" class="btn btn-primary" id="resetButton" disabled style="height: 37.6px;">重置</button>
@@ -84,7 +84,7 @@
                             sourceOption.value = element.deviceId
                             sourceSelect.appendChild(sourceOption);
                             // 鏡頭名稱有包含back的當預設鏡頭
-                            if (element.label.toLowerCase().includes('back')) {
+                            if (element.label.toLowerCase().includes('back') || element.label.toLowerCase().includes('2')) {
                                 selectedDeviceId = element.deviceId;
                             }
                         })
